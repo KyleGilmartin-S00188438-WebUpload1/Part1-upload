@@ -46,5 +46,5 @@ function DeletePlayer(req, res) {
         .catch((error) =>
             res.status(404).send({ message: 'not found' }));
 }
-
+//
 export default { ReadPlayers, ReadPlayer, CreatePlayer, DeletePlayer }
