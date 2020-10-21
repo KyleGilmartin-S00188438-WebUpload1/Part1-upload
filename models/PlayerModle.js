@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const playerModle = new Schema({
     Pfname: { type: String, required: true },
     Plname: { type: String, required: true },
-    Page: { type: Number, required: true },
+    Page: { type: Number, required: true }, // age of player
     Pteam: { type: String, required: true },
     Pposition: { type: String, required: true },
     Pwage: { type: Number, required: true },

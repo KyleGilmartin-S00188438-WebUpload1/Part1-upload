@@ -1,5 +1,45 @@
 import { Players } from "./PlayerModle";
 
+
+
+
+function ReadPlayers(req, res, option = []) {
+    const { Pfname, Plname, Page, Pteam, Pposition, Pwage, Pskill, PweekFoot } = req.query;
+    let filter = {};
+
+    if (Pfname) {
+        filter.Pfname = { $regex: `^${Pfname}$`, $options: 'i' };
+    }
+
+    if (Plname) {
+        filter.Plname = { $regex: `^${Plname}$`, $options: 'i' };
+    }
+    if (Page) { // age of player
+        filter.Page = { $regex: `^${Page}$`, $options: 'i' };
+    }
+
+    if (Pteam) {
+        filter.Pteam = { $regex: `^${Pteam}$`, $options: 'i' };
+    }
+
+    if (Pposition) {
+        filter.Pposition = { $regex: `^${Pposition}$`, $options: 'i' };
+    }
+    if (Pwage) {
+        filter.Pwage = { $regex: `^${Pwage}$`, $options: 'i' };
+    }
+    if (Pskill) {
+        filter.Pskill = { $regex: `^${Pskill}$`, $options: 'i' };
+    }
+    if (PweekFoot) {
+        filter.PweekFoot = { $regex: `^${PweekFoot}$`, $options: 'i' };
+    }
+}
+
+
+
+
+
 function ReadPlayers(req, res, options = []) {
     Players.find()
         .then((result) =>
