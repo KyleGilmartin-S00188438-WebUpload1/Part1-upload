@@ -14,7 +14,7 @@ function ReadPlayer(req, res) {
         .then((result) =>
             res.json(result))
         .catch((error) =>
-            res.status(404).json({ error: 'noy found' }))
+            res.status(404).json({ error: 'not found' }))
 }
 
 function CreatePlayer(req, res) {

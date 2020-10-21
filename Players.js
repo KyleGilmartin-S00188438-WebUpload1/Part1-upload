@@ -19,3 +19,5 @@ router.get('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     db.DeletePlayer(req, res);
 })
+
+export default router;
