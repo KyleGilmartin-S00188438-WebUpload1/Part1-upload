@@ -39,18 +39,18 @@ app.use('/Players', Players);
 app.get('/', (req, res) =>
     res.send('Testing port: ' + port));
 
-app.get("/players", (req, res) => {
-    res.send(Players);
-});
+// app.get("/players", (req, res) => {
+//     res.send(Players);
+// });
 
-app.get("/players/:id", (req, res) => {
-    let id = req.params.id;
-    res.json(Players[id]);
-});
-app.get("/Players/:age", (req, res) => {
-    let id = req.params.age;
-    res.json(Players[age]);
-});
+// app.get("/players/:id", (req, res) => {
+//     let id = req.params.id;
+//     res.json(Players[id]);
+// });
+// app.get("/Players/:age", (req, res) => {
+//     let id = req.params.age;
+//     res.json(Players[age]);
+// });
 
 app.all('*', (req, res) => {
     res.status(404).json({

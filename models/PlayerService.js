@@ -3,7 +3,7 @@ const { Players } = require("./PlayerModle");
 
 
 
-function ReadPlayers(req, res, option = []) {
+function ReadPlayers(req, res, options = []) {
     const { Pfname, Plname, Page, Pteam, Pposition, Pwage, Pskill, PweekFoot } = req.query;
     let filter = {};
 
@@ -62,7 +62,9 @@ function CreatePlayer(req, res) {
     PlayerDoc.save()
         .then((result) => {
             console.log('Player saved');
-            res.status(201).json({ id: result._id, uri: `/Players/${result.id}` })
+            res.location(result.uri)
+                .status(201)
+                .json({ id: result._id, uri: `/Players/${result.id}` })
         })
 
     .catch((error) => {
@@ -87,4 +89,5 @@ function DeletePlayer(req, res) {
             res.status(404).send({ message: 'not found' }));
 }
 
-export default { ReadPlayers, ReadPlayer, CreatePlayer, DeletePlayer }
+
+module.exports = { ReadPlayers, ReadPlayer, CreatePlayer, DeletePlayer }

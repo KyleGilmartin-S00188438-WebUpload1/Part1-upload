@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { db } = require('../models/PlayerModle');
+const { db } = require('../models/PlayerService');
 
 const router = express.Router();
 
