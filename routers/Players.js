@@ -1,8 +1,9 @@
 const express = require("express");
 
-import db from './models/PlayerModle';
+const { db } = require('../models/PlayerModle');
 
 const router = express.Router();
+
 
 router.post('/', (req, res) => {
     db.CreatePlayer(req, res);

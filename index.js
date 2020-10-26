@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const express = require("express");
+const Players = require('./routers/Players');
 const app = express();
 const port = 3000;
+
 
 mongoose.connect('mongodb://localhost:27017/PremDatabase', {
     "useNewUrlParser": true,
@@ -22,15 +24,17 @@ db.once('open', () => {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const PremSchema = new mongoose.Schema({
-    Name: String
+// const PremSchema = new mongoose.Schema({
+//     Name: String
 
-});
+//  });
 
-const prem = mongoose.model('player', PremSchema);
+// const prem = mongoose.model('player', PremSchema);
 
 
-let Players = [];
+//let Players = [];
+
+app.use('/Players', Players);
 
 app.get('/', (req, res) =>
     res.send('Testing port: ' + port));
@@ -48,18 +52,25 @@ app.get("/Players/:age", (req, res) => {
     res.json(Players[age]);
 });
 
-
-
-
-app.get('/addPlayer/:name', (req, res) => {
-
-    const aplayer = new prem({ name: req.params.name });
-
-    aplayer.save()
-        .then((result) => res.send(`${req.params.name} was saved`))
-        .catch((err) =>
-            console.error(err));
+app.all('*', (req, res) => {
+    res.status(404).json({
+        status: 'fail',
+        message: `Can't find ${req.originalUrl} on this server!`
+    });
 });
+
+
+// edit code above so i can add name
+
+// app.get('/addPlayer/:name', (req, res) => {
+
+//     const aplayer = new prem({ name: req.params.name });
+
+//     aplayer.save()
+//         .then((result) => res.send(`${req.params.name} was saved`))
+//         .catch((err) =>
+//             console.error(err));
+// });
 
 app.listen(port, () => console.log(`Example app listening on 
   : ${port}!`))

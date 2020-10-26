@@ -1,4 +1,4 @@
-import { Players } from "./PlayerModle";
+const { Players } = require("./PlayerModle");
 
 
 
