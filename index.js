@@ -59,7 +59,7 @@ app.all('*', (req, res) => {
     });
 });
 
-
+//
 // edit code above so i can add name
 
 // app.get('/addPlayer/:name', (req, res) => {
