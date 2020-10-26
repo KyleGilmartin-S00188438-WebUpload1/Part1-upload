@@ -14,6 +14,9 @@ const playerModle = new Schema({
     PweekFoot: { type: String, required: true },
 }, { toJSON: { virtuals: true } })
 
+playerModle.virtual('uri').get(function() {
+    return `/Players/${this.id}`;
+})
 
 playerModle.plugin(uniqueValidator);
 
