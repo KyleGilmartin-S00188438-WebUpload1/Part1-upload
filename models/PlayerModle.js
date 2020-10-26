@@ -1,4 +1,4 @@
-import uniqueValidator from 'mongoose-unique-validator';
+const uniqueValidator = require('mongoose-unique-validator');
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
@@ -17,7 +17,7 @@ const playerModle = new Schema({
 
 playerModle.plugin(uniqueValidator);
 
-let Players = mongoose.model('Player', PlayerSchema)
+let Players = mongoose.model('Player', playerModle)
 
-
-export { Players }
+module.exports = Players;
+//export { Players }

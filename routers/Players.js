@@ -21,4 +21,5 @@ router.delete('/:id', (req, res) => {
     db.DeletePlayer(req, res);
 })
 
-export default router;
+module.exports = router;
+//export default router;
